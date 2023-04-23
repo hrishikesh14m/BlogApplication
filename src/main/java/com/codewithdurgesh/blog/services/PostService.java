@@ -3,6 +3,7 @@ package com.codewithdurgesh.blog.services;
 import java.util.List;
 
 import com.codewithdurgesh.blog.payloads.PostDto;
+import com.codewithdurgesh.blog.payloads.PostResponse;
 
 public interface PostService {
 
@@ -11,12 +12,14 @@ public interface PostService {
 	List<PostDto> getPostByUser(Integer userId);
 
 	List<PostDto> getPostByCategory(Integer categoryId);
-	
-	List<PostDto> getAllPosts(Integer pageNumber ,Integer pageSize);
-	
+
+	PostResponse getAllPosts(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
+
 	PostDto getPostById(Integer postId);
 
 	void deletePostById(Integer postId);
-	
-	PostDto updatePostById(PostDto postDto , Integer postId);
+
+	PostDto updatePostById(PostDto postDto, Integer postId);
+
+	List<PostDto> searchPost(String keyword);
 }
